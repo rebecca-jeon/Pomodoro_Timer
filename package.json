@@ -1,0 +1,17 @@
+{
+  "name": "pomodoro-timer",
+  "productName": "Pomodoro Timer",
+  "version": "1.0.0",
+  "description": "App to help you focus and get shit done!",
+  "license": "MIT",
+  "author": "Gilyoung Jeon",
+  "type": "commonjs",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^35.0.2",
+    "toastify-js": "^1.12.0"
+  }
+}
