@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Lateef';
+    src: url(../../assets/fonts/Lateef/Lateef-Bold.ttf);
+}
+
+
+body {
+    background-color: #F4E9D5;
+}

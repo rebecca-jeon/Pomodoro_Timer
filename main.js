@@ -5,10 +5,10 @@ const { create } = require('domain');
 function createMainWindow() {
     const mainWindow = new BrowserWindow({
         title: 'Pomodoro Timer',
-        width: 500,
+        width: 800,
         height: 600
     });
-    mainWindow.loadFile(path.join(__dirname, './renderer/index.html'));
+    mainWindow.loadFile(path.join(__dirname, './renderer/tasks.html'));
 }
 
 app.whenReady().then(()=> {

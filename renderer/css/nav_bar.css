@@ -1,0 +1,28 @@
+
+nav {
+    display: flex;
+    justify-content: left;
+    padding-left: 20px;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    padding: 0 25px;
+    margin: 10px;
+    border-bottom: 1px solid black;
+
+}
+
+nav ul li a {
+    font-family: 'Lateef', sans-serif;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 28px;
+    font-weight: bold;
+}
+
+nav ul li a.active {
+    color: #980C17;
+}
