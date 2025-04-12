@@ -18,3 +18,23 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
   });
+
+
+//date and time
+//
+//'undefined' = uses the browser's or system's default locale
+function updateDateTime(){
+  const now = new Date();
+
+  const year = now.getFullYear()
+  const month = now.toLocaleDateString(undefined, {month:'long'});
+  const day = now.getDate();
+  const weekday = now.toLocaleDateString(undefined, {weekday:'long'});
+
+  const time_options = {hour: '2-digit', minute: '2-digit', hour12: true};
+  const timestr = now.toLocaleTimeString(undefined, time_options);
+
+  console.log(year, month, day, weekday, timestr);
+}
+
+updateDateTime();
