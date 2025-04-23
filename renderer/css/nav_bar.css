@@ -3,6 +3,7 @@ nav {
     display: flex;
     justify-content: left;
     padding-left: 20px;
+    width: max-content;
 }
 
 nav ul {

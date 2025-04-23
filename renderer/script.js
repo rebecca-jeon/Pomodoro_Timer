@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(data => {
           navPlaceholder.innerHTML = data;
   
-          //change the coloour of the link when the user is on the page
+          //change the colour of the link when the user is on the page
           const path = window.location.pathname.split('/').pop();
           const links = document.querySelectorAll('nav a');
           links.forEach(link => {
@@ -17,6 +17,16 @@ window.addEventListener('DOMContentLoaded', () => {
           });
         });
     }
+      const timedatePlaceholder = document.getElementById('timedate-placeholder');
+      if (timedatePlaceholder) {
+        fetch('components/date_time.html')
+          .then(response => response.text())
+          .then(data => {
+            timedatePlaceholder.innerHTML = data;
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+          });
+      }
   });
 
 
@@ -34,7 +44,9 @@ function updateDateTime(){
   const time_options = {hour: '2-digit', minute: '2-digit', hour12: true};
   const timestr = now.toLocaleTimeString(undefined, time_options);
 
-  console.log(year, month, day, weekday, timestr);
+  document.getElementById("year").textContent = year;
+  document.getElementById("month").textContent = month;
+  document.getElementById("day").textContent = day;
+  document.getElementById("weekday").textContent = weekday;
+  document.getElementById("time").textContent = timestr;
 }
-
-updateDateTime();
