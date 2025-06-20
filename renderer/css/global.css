@@ -2,6 +2,10 @@
     font-family: 'Lateef';
     src: url(../../assets/fonts/Lateef/Lateef-Bold.ttf);
 }
+@font-face {
+    font-family: 'Tomato Ketchap';
+    src: url(../../assets/fonts/Tomato/Tomato\ Ketchup\ copy.otf);
+}
 
 
 body {
@@ -9,6 +13,7 @@ body {
 }
 
 #header {
+    position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-between;

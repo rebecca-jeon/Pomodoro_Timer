@@ -1,0 +1,62 @@
+.circle{
+    position: absolute;
+    top: -37vh;
+    left: 60vw;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    background-color: #73905A;
+    display: flex;
+    z-index: 5;
+} 
+
+#year{
+    position: absolute;
+    top: -.5vh;
+    left: 90vw;
+    color: #584826;
+    font-size: 4vw;
+    z-index: 10;
+    font-family:'Tomato Ketchap', sans-serif;
+}
+
+#date{
+    position: absolute;
+    top: 4vh;
+    left: 65vw;
+    display: flex;
+    align-items: baseline;
+    gap: 1.5vw;
+    z-index: 10;
+    font-family: 'Tomato Ketchap', sans-serif;
+}
+
+#month{
+    color: #F4E9D5;
+    font-size: 5.5vw;
+}
+
+#day{
+    color: white;
+    font-size: 6vw;
+}
+
+#weekday{
+    position: absolute;
+    top: 11.5vh;
+    right: 0.5vw;
+    font-size: 5.5vw;
+    color: #F4E9D5;
+    z-index: 10;
+    font-family: 'Tomato Ketchap', sans-serif;
+}
+
+#time{
+    position: absolute;
+    top: 22vh;
+    right: 1.5vw;
+    font-size: 6.5vw;
+    color: white;
+    z-index: 10;
+    font-family: 'Tomato Ketchap', sans-serif;
+}
