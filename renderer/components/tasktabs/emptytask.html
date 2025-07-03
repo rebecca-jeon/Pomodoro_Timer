@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="css/tasktabs/emptytasks.css"/>
+
+<div class="taskbox">
+    <button onclick="openPopUp()">+</button>
+    <p>Add your entry</p>
+</div>
+
+<form id="popUp">
+    <div id="buttons">
+        <button id="cancelPopup" onclick="closePopUp()">Cancel</button>
+        <button type="submit">Save</button>
+    </div>
+    <div id="taskFill">
+        <label for="title">Task Title</label>
+        <input type="text" id="title">
+        <label for="description">Task Description</label>
+        <textarea cols="40" rows="5"></textarea>
+    </div>
+</form>

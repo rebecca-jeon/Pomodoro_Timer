@@ -1,6 +1,6 @@
 .circle{
     position: absolute;
-    top: -37vh;
+    top: -39vh;
     left: 60vw;
     width: 50vw;
     height: 50vw;
@@ -12,7 +12,7 @@
 
 #year{
     position: absolute;
-    top: -.5vh;
+    top: 1vh;
     left: 90vw;
     color: #584826;
     font-size: 4vw;
@@ -43,7 +43,7 @@
 
 #weekday{
     position: absolute;
-    top: 11.5vh;
+    top: 13vh;
     right: 0.5vw;
     font-size: 5.5vw;
     color: #F4E9D5;
@@ -53,8 +53,8 @@
 
 #time{
     position: absolute;
-    top: 22vh;
-    right: 1.5vw;
+    top: 25vh;
+    right: 3vw;
     font-size: 6.5vw;
     color: white;
     z-index: 10;

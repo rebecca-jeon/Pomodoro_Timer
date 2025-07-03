@@ -17,16 +17,25 @@ window.addEventListener('DOMContentLoaded', () => {
           });
         });
     }
-      const timedatePlaceholder = document.getElementById('timedate-placeholder');
-      if (timedatePlaceholder) {
-        fetch('components/date_time.html')
-          .then(response => response.text())
-          .then(data => {
-            timedatePlaceholder.innerHTML = data;
-            updateDateTime();
-            setInterval(updateDateTime, 1000);
-          });
-      }
+    const timedatePlaceholder = document.getElementById('timedate-placeholder');
+    if (timedatePlaceholder) {
+      fetch('components/date_time.html')
+        .then(response => response.text())
+        .then(data => {
+          timedatePlaceholder.innerHTML = data;
+          updateDateTime();
+          setInterval(updateDateTime, 1000);
+        });
+    }
+    const emptytaskPlaceholder = document.getElementById('emptytask-placeholder');
+    if (emptytaskPlaceholder){
+      fetch('components/tasktabs/emptytask.html')
+        .then(response => response.text())
+        .then(data => {
+          emptytaskPlaceholder.innerHTML = data;
+        });
+    }
+
   });
 
 
@@ -49,4 +58,12 @@ function updateDateTime(){
   document.getElementById("day").textContent = day;
   document.getElementById("weekday").textContent = weekday;
   document.getElementById("time").textContent = timestr;
+}
+
+function openPopUp(){
+  document.getElementById('popUp').style.display = 'block';
+}
+
+function closePopUp(){
+   document.getElementById('popUp').style.display = 'none';
 }

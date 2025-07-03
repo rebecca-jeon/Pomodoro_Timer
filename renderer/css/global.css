@@ -9,7 +9,11 @@
 
 
 body {
+    position: relative;
+    width: 1280;
+    height: 832;
     background-color: #F4E9D5;
+    overflow: hidden;
 }
 
 #header {

@@ -6,7 +6,9 @@ function createMainWindow() {
     const mainWindow = new BrowserWindow({
         title: 'Pomodoro Timer',
         width: 1280,
-        height: 832
+        height: 832,
+        minWidth: 1280,
+        minHeight: 832
     });
     mainWindow.loadFile(path.join(__dirname, './renderer/tasks.html'));
 }
