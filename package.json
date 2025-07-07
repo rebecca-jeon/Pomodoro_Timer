@@ -5,7 +5,7 @@
   "description": "App to help you focus and get shit done!",
   "license": "MIT",
   "author": "Gilyoung Jeon",
-  "type": "commonjs",
+  "type": "module",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
@@ -13,6 +13,7 @@
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.3",
     "electron": "^35.0.2",
+    "electron-store": "^10.1.0",
     "lucide-react": "^0.522.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",

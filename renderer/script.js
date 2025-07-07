@@ -33,8 +33,13 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(response => response.text())
         .then(data => {
           emptytaskPlaceholder.innerHTML = data;
+          formHandler();
         });
     }
+
+    //Task Form Handler
+     
+    
 
   });
 
@@ -66,4 +71,36 @@ function openPopUp(){
 
 function closePopUp(){
    document.getElementById('popUp').style.display = 'none';
+}
+
+function formHandler() {
+  const formSubmit = document.getElementById('popUp');
+    console.log(formSubmit);
+  if (formSubmit) {
+    formSubmit.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const counter = document.getElementById('counter').value;
+      console.log(title, description, counter);
+
+      const newTask = {
+        title,
+        description,
+        pomoCount: parseInt(counter),
+        completed: false
+      };
+
+      const existingTask = await window.electronAPI.get();
+      existingTask.push(newTask);
+      await window.electronAPI.set(existingTask);
+      console.log(existingTask);
+
+      //RENDER TASK LIST
+
+      closePopUp();
+      e.target.reset(); 
+    }); 
+  }
 }
