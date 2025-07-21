@@ -1,8 +1,17 @@
+#task-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    position: relative;
+    z-index: 5;
+}
+
 .taskbox{
     width: 98vw;
     height: 4vw;
     border-radius: 15px;
-    margin-top: 300px;
+    margin-top: 20px;
     margin-left: 0.5vw;
     background-color: white;
     opacity: 73%;
@@ -10,6 +19,8 @@
     color: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 5;
 }
 
 .taskbox button {

@@ -37,10 +37,6 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    //Task Form Handler
-     
-    
-
   });
 
 
@@ -73,9 +69,14 @@ function closePopUp(){
    document.getElementById('popUp').style.display = 'none';
 }
 
-function formHandler() {
+async function formHandler() {
   const formSubmit = document.getElementById('popUp');
-    console.log(formSubmit);
+  const taskListDiv = document.getElementById('task-list');
+  if (taskListDiv){
+    console.log(taskListDiv);
+    console.log('We have previous tasks');
+    await loadTasks(taskListDiv);
+  }
   if (formSubmit) {
     formSubmit.addEventListener('submit', async (e) => {
       e.preventDefault();
@@ -94,13 +95,34 @@ function formHandler() {
 
       const existingTask = await window.electronAPI.get();
       existingTask.push(newTask);
+      // existingTask.length = 0;
       await window.electronAPI.set(existingTask);
       console.log(existingTask);
 
-      //RENDER TASK LIST
-
+      await loadTasks(taskListDiv);
       closePopUp();
       e.target.reset(); 
     }); 
   }
+}
+
+async function loadTasks(taskListDiv){
+  const tasks = await window.electronAPI.get();
+  
+  taskListDiv.innerHTML = '';
+  taskListDiv.style.display = 'block';
+  console.log('Here at loadTasks');
+  console.log(tasks);
+
+  for (const task of tasks){
+    const taskDiv = document.createElement('div');
+    taskDiv.classList.add('taskbox');
+    taskDiv.innerHTML = `
+    <h3>${task.title}</h3>
+    <p> ${task.description}</p>
+    <p> Pomodoros: ${task.pomoCount}</p>
+    `;
+    taskListDiv.appendChild(taskDiv);
+  }
+  
 }

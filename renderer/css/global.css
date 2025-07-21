@@ -7,13 +7,20 @@
     src: url(../../assets/fonts/Tomato/Tomato\ Ketchup\ copy.otf);
 }
 
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-body {
+html, body {
+    margin: 0;
     position: relative;
-    width: 1280;
-    height: 832;
+    width: 100vw;
+    height: 100vh;
     background-color: #F4E9D5;
-    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #header {
