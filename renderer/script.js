@@ -7,7 +7,7 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(data => {
           navPlaceholder.innerHTML = data;
   
-          //change the coloour of the link when the user is on the page
+          //change the colour of the link when the user is on the page
           const path = window.location.pathname.split('/').pop();
           const links = document.querySelectorAll('nav a');
           links.forEach(link => {
@@ -17,4 +17,112 @@ window.addEventListener('DOMContentLoaded', () => {
           });
         });
     }
+    const timedatePlaceholder = document.getElementById('timedate-placeholder');
+    if (timedatePlaceholder) {
+      fetch('components/date_time.html')
+        .then(response => response.text())
+        .then(data => {
+          timedatePlaceholder.innerHTML = data;
+          updateDateTime();
+          setInterval(updateDateTime, 1000);
+        });
+    }
+    const emptytaskPlaceholder = document.getElementById('emptytask-placeholder');
+    if (emptytaskPlaceholder){
+      fetch('components/tasktabs/emptytask.html')
+        .then(response => response.text())
+        .then(data => {
+          emptytaskPlaceholder.innerHTML = data;
+          formHandler();
+        });
+    }
+
   });
+
+
+//date and time
+//
+//'undefined' = uses the browser's or system's default locale
+function updateDateTime(){
+  const now = new Date();
+
+  const year = now.getFullYear()
+  const month = now.toLocaleDateString(undefined, {month:'long'});
+  const day = now.getDate();
+  const weekday = now.toLocaleDateString(undefined, {weekday:'long'});
+
+  const time_options = {hour: '2-digit', minute: '2-digit', hour12: true};
+  const timestr = now.toLocaleTimeString(undefined, time_options);
+
+  document.getElementById("year").textContent = year;
+  document.getElementById("month").textContent = month;
+  document.getElementById("day").textContent = day;
+  document.getElementById("weekday").textContent = weekday;
+  document.getElementById("time").textContent = timestr;
+}
+
+function openPopUp(){
+  document.getElementById('popUp').style.display = 'block';
+}
+
+function closePopUp(){
+   document.getElementById('popUp').style.display = 'none';
+}
+
+async function formHandler() {
+  const formSubmit = document.getElementById('popUp');
+  const taskListDiv = document.getElementById('task-list');
+  if (taskListDiv){
+    console.log(taskListDiv);
+    console.log('We have previous tasks');
+    await loadTasks(taskListDiv);
+  }
+  if (formSubmit) {
+    formSubmit.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const counter = document.getElementById('counter').value;
+      console.log(title, description, counter);
+
+      const newTask = {
+        title,
+        description,
+        pomoCount: parseInt(counter),
+        completed: false
+      };
+
+      const existingTask = await window.electronAPI.get();
+      existingTask.push(newTask);
+      // existingTask.length = 0;
+      await window.electronAPI.set(existingTask);
+      console.log(existingTask);
+
+      await loadTasks(taskListDiv);
+      closePopUp();
+      e.target.reset(); 
+    }); 
+  }
+}
+
+async function loadTasks(taskListDiv){
+  const tasks = await window.electronAPI.get();
+  
+  taskListDiv.innerHTML = '';
+  taskListDiv.style.display = 'block';
+  console.log('Here at loadTasks');
+  console.log(tasks);
+
+  for (const task of tasks){
+    const taskDiv = document.createElement('div');
+    taskDiv.classList.add('taskbox');
+    taskDiv.innerHTML = `
+    <h3>${task.title}</h3>
+    <p> ${task.description}</p>
+    <p> Pomodoros: ${task.pomoCount}</p>
+    `;
+    taskListDiv.appendChild(taskDiv);
+  }
+  
+}

@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="css/tasktabs/emptytasks.css"/>
+
+<div id="task-list"></div>
+
+<div class="taskbox">
+    <button onclick="openPopUp()">+</button>
+    <p>Add your entry</p>
+</div>
+
+<form id="popUp">
+    <div id="buttons">
+        <button id="cancelBtn" type="button" onclick="closePopUp()">Cancel</button>
+        <button id="submitBtn" type="submit">Save</button>
+    </div>
+    <div id="taskFill">
+        <label for="title">Task Title</label>
+        <input id="title" type="text">
+        <label for="description">Task Description</label>
+        <textarea id="description" cols="40" rows="5"></textarea>
+        <label for="counter">Pomodoro Counter</label>
+        <div id="counterPocket">
+            <select id="counter">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <p>Times</p>
+        </div>
+
+    </div>
+</form>

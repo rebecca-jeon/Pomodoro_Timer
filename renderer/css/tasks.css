@@ -1,0 +1,51 @@
+#greeting {
+    margin-top: 65px;
+    font-family: 'Tomato Ketchap', sans-serif;
+    margin-left: 60px;
+    font-size: 70px;
+    color: black;
+}
+
+#ferns {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 34px;
+    top: 200px;
+    width: 243px;
+    height: 61.98px;
+    margin: 0;
+    padding: 0;
+}
+
+#todaytaskline{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top:  65px;
+    padding: 0;
+}
+
+#todaytaskline p{
+    font-family: 'Lateef', sans-serif;
+    font-size: 80px;
+    color: black;
+    margin: 0;
+    margin-left: 50px;
+}
+
+#tomatoes_tasks{
+    display: flex;
+    flex-direction: row;
+    width: 75px;
+    height: 66.24px;
+}
+
+#totoro{
+    position: fixed;
+    bottom:0;
+    margin-left:1000px;
+    width: 233.28px;
+    height: 250.63px;
+    z-index: 3;
+}
